@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author dekna
+ *
+ */
+module MagicPoo {
+}

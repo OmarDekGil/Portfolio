@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="609.0" prefWidth="1030.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letras.HelloController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <children>
+      <Label text="Letras">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <HBox fx:id="Hbox" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="letra1" alignment="CENTER" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra2" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra3" alignment="CENTER" layoutX="113.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra4" alignment="CENTER" layoutX="216.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra5" alignment="CENTER" layoutX="320.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra6" alignment="CENTER" layoutX="423.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra7" alignment="CENTER" layoutX="526.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font></Label>
+            <Label fx:id="letra8" alignment="CENTER" layoutX="629.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font>
+            </Label>
+            <Label fx:id="letra9" alignment="CENTER" layoutX="732.0" layoutY="10.0" prefHeight="101.0" prefWidth="103.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="158.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="158.0" prefWidth="228.0">
+               <opaqueInsets>
+                  <Insets left="50.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="400.0" />
+               </HBox.margin>
+               <children>
+                  <Label text="Jugador 1:">
+                     <font>
+                        <Font size="29.0" />
+                     </font></Label>
+                  <TextField fx:id="Player1" editable="true" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="137.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <Label fx:id="puntos1" prefHeight="41.0" prefWidth="229.0" text="Puntos: ">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Button fx:id="Btn1" mnemonicParsing="false" onAction="#lanzaPalabra1" prefHeight="36.0" prefWidth="263.0" text="Enviar palabra">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="158.0" prefWidth="228.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label text="Jugador 2:">
+                     <font>
+                        <Font size="29.0" />
+                     </font></Label>
+                  <TextField fx:id="Player2" editable="true" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="137.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <Label fx:id="puntos2" prefHeight="41.0" prefWidth="240.0" text="Puntos: ">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Button fx:id="Btn2" mnemonicParsing="false" onAction="#lanzaPalabra2" prefHeight="36.0" prefWidth="263.0" text="Enviar palabra">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnVocal" mnemonicParsing="false" onAction="#genvocal" text="Generar vocal">
+               <HBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnConso" mnemonicParsing="false" onAction="#genconso" text="Generar consonante">
+               <HBox.margin>
+                  <Insets bottom="30.0" left="90.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="Contador" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="66.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="mensaje" alignment="CENTER" prefHeight="119.0" prefWidth="990.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

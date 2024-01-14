@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgSitio"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="87dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toEndOf="@+id/imgSitio"
+        app:layout_constraintTop_toBottomOf="@+id/txtKm"
+        tools:text=" NAME" />
+
+    <TextView
+        android:id="@+id/txtKm"
+        android:layout_width="86dp"
+        android:layout_height="36dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintStart_toEndOf="@+id/imgSitio"
+        tools:layout_editor_absoluteY="29dp"
+        tools:text="KM" />
+
+    <TextView
+
+        android:layout_width="85dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="KM:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toEndOf="@+id/imgSitio"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+
+        android:id="@+id/textView9"
+        android:layout_width="99dp"
+        android:layout_height="31dp"
+        android:text="Nombre:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toEndOf="@+id/imgSitio"
+        tools:layout_editor_absoluteY="34dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

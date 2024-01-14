@@ -1,0 +1,486 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package blackjack;
+
+import java.awt.List;
+import java.util.ArrayList;
+import javax.swing.JTextField;
+
+
+public class BlackJack extends javax.swing.JFrame {
+ private ArrayList<String> baraja;
+ JTextField[] field = new JTextField[9];
+
+
+   private int puntuacion;
+   private int Cru;
+   private int ind;
+   private int puntCarta;
+   int indAux = 51;
+   int aux = 1;
+   boolean win = false;
+   boolean As = false;
+    public BlackJack() {
+        initComponents(); 
+        ComenzarPartida();
+    }
+   void ComenzarPartida(){
+//       jTextField3.setVisible(false);
+//       jTextField4.setVisible(false);
+//       jTextField5.setVisible(false);
+//       jTextField6.setVisible(false);
+//       jTextField7.setVisible(false);
+//       jTextField8.setVisible(false);
+//       jTextField9.setVisible(false);
+        CrearBaraja();
+      
+       ind = numalt(0,indAux);
+       indAux--;
+       System.out.println( baraja.get(ind));
+       jTextField1.setText(baraja.get(ind));
+       asignarValor("");
+       puntuacion += puntCarta;      
+       baraja.remove(ind);
+       txtpuntos.setText(""+puntuacion);
+       
+       indAux--;
+       ind = numalt(0,indAux);
+       System.out.println( baraja.get(ind));
+       asignarValor("");
+       puntuacion += puntCarta;
+       puntuacion++;
+       
+       baraja.remove(ind);
+       txtpuntos.setText(""+puntuacion);
+       jTextField2.setText(baraja.get(ind));
+       
+       
+    }
+    void CrearBaraja(){
+    baraja = new ArrayList<>();
+    
+    field[0]=jTextField1;
+    field[1]=jTextField2;
+    field[2]=jTextField3;
+    field[3]=jTextField4;
+    field[4]=jTextField5;
+    field[5]=jTextField6;
+    field[6]=jTextField7;
+    field[7]=jTextField8;
+    field[8]=jTextField9;
+    baraja.add("AC"); // As de Corazones
+baraja.add("2C"); // 2 de Corazones 
+baraja.add("3C"); // 3 de Corazones
+baraja.add("4C"); // 4 de Corazones
+baraja.add("5C"); // 5 de Corazones
+baraja.add("6C"); // 6 de Corazones
+baraja.add("7C"); // 7 de Corazones
+baraja.add("8C"); // 8 de Corazones
+baraja.add("9C"); // 9 de Corazones
+baraja.add("10C"); // 10 de Corazones
+baraja.add("JC"); // Jota de Corazones
+baraja.add("QC"); // Reina de Corazones
+baraja.add("KC"); // Rey de Corazones
+
+baraja.add("AT"); // As de Treboles
+baraja.add("2T"); // 2 de Treboles
+baraja.add("3T"); // 3 de Treboles
+baraja.add("4T"); // 4 de Treboles
+baraja.add("5T"); // 5 de Treboles
+baraja.add("6T"); // 6 de Treboles
+baraja.add("7T"); // 7 de Treboles
+baraja.add("8T"); // 8 de Treboles
+baraja.add("9T"); // 9 de Treboles
+baraja.add("10T"); // 10 de Treboles
+baraja.add("JT"); // Jota de Treboles
+baraja.add("QT"); // Reina de Treboles
+baraja.add("KT"); // Rey de Treboles
+
+baraja.add("AP"); // As de Picas
+baraja.add("2P"); // 2 de Picas
+baraja.add("3P"); // 3 de Picas
+baraja.add("4P"); // 4 de Picas
+baraja.add("5P"); // 5 de Picas
+baraja.add("6P"); // 6 de Picas
+baraja.add("7P"); // 7 de Picas
+baraja.add("8P"); // 8 de Picas
+baraja.add("9P"); // 9 de Picas
+baraja.add("10P"); // 10 de Picas
+baraja.add("JP"); // Jota de Picas
+baraja.add("QP"); // Reina de Picas
+baraja.add("KP"); // Rey de Picas
+
+baraja.add("AD"); // As de Diamantes
+baraja.add("2D"); // 2 de Diamantes
+baraja.add("3D"); // 3 de Diamantes
+baraja.add("4D"); // 4 de Diamantes
+baraja.add("5D"); // 5 de Diamantes
+baraja.add("6D"); // 6 de Diamantes
+baraja.add("7D"); // 7 de Diamantes
+baraja.add("8D"); // 8 de Diamantes
+baraja.add("9D"); // 9 de Diamantes
+baraja.add("10D"); // 10 de Diamantes
+baraja.add("JD"); // Jota de Diamantes
+baraja.add("QD"); // Reina de Diamantes
+baraja.add("KD");// Rey de Diamantes
+    }
+    
+  
+   public int asignarValor(String carta) {
+    carta = baraja.get(ind);
+    char valor = carta.charAt(0);
+     Integer.parseInt("10");
+    if (valor >= '2' && valor <= '9') {
+        //System.out.println("valor de la carta"+ valor);
+        puntCarta = valor - '0';
+        return puntCarta; // Convierte el carácter numérico a su valor entero correspondiente
+        
+    }else if (valor == '0') {
+          puntCarta= Integer.parseInt("10");
+          return puntCarta;
+       }
+    else if (valor == 'A') {
+//        if (puntuacion >) {
+//            puntCarta = 1;
+//        }else{
+//            puntCarta 
+//        }
+       puntCarta = 1;
+        return puntCarta; // As tiene valor 1
+    } else {
+        puntCarta = 10;
+        return puntCarta; // J, Q y K tienen valor 10
+    }
+    
+}
+   
+    int numalt(int min, int max){
+        int x = (int) ((Math.random()*((max-min)+1))+min);
+        return x;
+    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        btnPedir = new javax.swing.JButton();
+        btnPlantar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        txtpuntos = new javax.swing.JTextField();
+        txtcru = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnPedir.setText("Pedir Carta");
+        btnPedir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedirActionPerformed(evt);
+            }
+        });
+
+        btnPlantar.setText("Plantarse");
+        btnPlantar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlantarActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField2.setEditable(false);
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jTextField3.setEditable(false);
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jTextField4.setEditable(false);
+        jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField5.setEditable(false);
+        jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jTextField6.setEditable(false);
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+
+        txtpuntos.setEditable(false);
+
+        txtcru.setEditable(false);
+
+        jTextField8.setEditable(false);
+        jTextField8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField9.setEditable(false);
+        jTextField9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField10.setText("Tus puntos:");
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+
+        jTextField11.setText("Puntos de la banca:");
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtcru, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPedir, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(txtpuntos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnPlantar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtpuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcru, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPedir)))
+                .addGap(18, 18, 18)
+                .addComponent(btnPlantar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedirActionPerformed
+       aux++;
+       field[aux].setVisible(true);
+       field[aux].setText(baraja.get(ind));
+       ind = numalt(0,indAux);
+        if (aux ==8) {
+           aux=0;
+        }
+//       System.out.println( baraja.get(ind));
+       asignarValor("");
+       puntuacion += puntCarta;
+       indAux--;
+       baraja.remove(ind);
+       txtpuntos.setText(""+puntuacion);
+
+    }//GEN-LAST:event_btnPedirActionPerformed
+
+    private void btnPlantarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantarActionPerformed
+      Cru = numalt(15,23);
+      txtcru.setText(""+ Cru);
+        if ((puntuacion > Cru) && (puntuacion<=21)) {
+            win = true;
+             System.out.println("FELICIDADES, HAS GANADO!!!!!");
+        }else if(puntuacion == Cru){
+            win =false;
+        }else if(Cru > 21){
+            win = false;
+        }else{
+            win = false;
+        }
+        
+        if (win ==true) {
+            puntuacion=0;
+            for (int i = 0; i < 8; i++) {
+                field[i].setText("");
+            }
+            
+            txtcru.setText("");
+            txtpuntos.setText("");
+   ind=0;
+    puntCarta=0;
+    indAux = 51;
+    aux = -1;
+    win = false;
+    As = false;
+        }
+       // System.out.println("Puntos: "+ puntuacion + "Cru: " + Cru+ "win:"+win);
+    }//GEN-LAST:event_btnPlantarActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new BlackJack().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPedir;
+    private javax.swing.JButton btnPlantar;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtcru;
+    private javax.swing.JTextField txtpuntos;
+    // End of variables declaration//GEN-END:variables
+}
